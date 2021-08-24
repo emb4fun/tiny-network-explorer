@@ -1,0 +1,8 @@
+
+Tiny Network Explorer ChangeLog
+
+= Version 1.10, 15.04.2021
+   * Added support for multiple ethernet interfaces.
+
+= Version 1.02, 18.07.2020
+   * Initial public release.

@@ -1,0 +1,52 @@
+
+#include <ntverp.h>
+
+#undef VER_COMPANYNAME_STR
+#undef VER_PRODUCTNAME_STR
+#undef VER_PRODUCTVERSION_STR
+#undef VER_PRODUCTVERSION
+#undef VER_LEGALCOPYRIGHT_STR
+
+#include "version.h"
+
+#define VER_FILETYPE                VFT_APP
+#define VER_FILESUBTYPE             VFT2_UNKNOWN
+
+#define VER_FILEDESCRIPTION_STR     "Tiny Network Explorer"
+
+#define VER_INTERNALNAME_STR        "Tiny Network Explorer"
+#define VER_ORIGINALFILENAME_STR    "tnexpl.exe"
+#define VER_PRODUCTNAME_STR         "Tiny Network Explorer"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     VER_FILEVERSION
+PRODUCTVERSION  VER_PRODUCTVERSION
+FILEFLAGSMASK   VER_FILEFLAGSMASK
+FILEFLAGS       VER_FILEFLAGS
+FILEOS          VER_FILEOS
+FILETYPE        VER_FILETYPE
+FILESUBTYPE     VER_FILESUBTYPE
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+
+        BLOCK "040704B0"   
+
+        BEGIN
+            VALUE "FileDescription", VER_FILEDESCRIPTION_STR
+            VALUE "FileVersion",     VER_FILEVERSION_STR
+            VALUE "InternalName",    VER_INTERNALNAME_STR
+            VALUE "LegalCopyright",  VER_LEGALCOPYRIGHT_STR
+            VALUE "OriginalFilename",VER_ORIGINALFILENAME_STR
+            VALUE "ProductName",     VER_PRODUCTNAME_STR
+            VALUE "ProductVersion",  VER_PRODUCTVERSION_STR
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+
+        VALUE "Translation", 0x0407, 0x04B0
+
+    END
+END
