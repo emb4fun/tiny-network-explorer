@@ -1,5 +1,16 @@
+***************************************************************************
+* Project: tiny-network-explorer
+* Name   : "Tiny Network Explorer"
+* Target : Windows / Linux
+* Version: 20261122
+***************************************************************************
+* Tools  : MSYS2-UCRT64 / Linux, see readme.md
+***************************************************************************
+* URL    : https://www.emb4fun.de/projects/tone/index.html#tne
+***************************************************************************
 
-Tiny Network Explorer ChangeLog
+= Version 2.00, 22.11.2026
+   * A port for MSYS2-UCRT64 / Linux, using wxWidgets for the GUI.
 
 = Version 1.10, 15.04.2021
    * Added support for multiple ethernet interfaces.

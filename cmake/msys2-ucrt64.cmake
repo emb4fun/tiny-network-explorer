@@ -1,0 +1,31 @@
+# MSYS2 UCRT64 toolchain (GCC + Ninja, static executables).
+#   cmake --preset ucrt64
+#   cmake --build --preset ucrt64
+
+set(CMAKE_SYSTEM_NAME Windows)
+set(CMAKE_SYSTEM_PROCESSOR x86_64)
+
+if(NOT DEFINED MSYS2_ROOT)
+    if(DEFINED ENV{MSYS2_ROOT})
+        set(MSYS2_ROOT "$ENV{MSYS2_ROOT}")
+    else()
+        set(MSYS2_ROOT "C:/msys64")
+    endif()
+endif()
+
+set(MSYS2_UCRT64_ROOT "${MSYS2_ROOT}/ucrt64")
+
+set(CMAKE_C_COMPILER "${MSYS2_UCRT64_ROOT}/bin/gcc.exe")
+set(CMAKE_CXX_COMPILER "${MSYS2_UCRT64_ROOT}/bin/g++.exe")
+set(CMAKE_RC_COMPILER "${MSYS2_UCRT64_ROOT}/bin/windres.exe")
+
+set(CMAKE_FIND_ROOT_PATH "${MSYS2_UCRT64_ROOT}")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+
+set(CMAKE_C_COMPILER_TARGET "x86_64-w64-mingw32")
+set(CMAKE_CXX_COMPILER_TARGET "x86_64-w64-mingw32")
+
+set(CMAKE_MAKE_PROGRAM "${MSYS2_UCRT64_ROOT}/bin/ninja.exe" CACHE FILEPATH "Ninja from MSYS2 UCRT64" FORCE)

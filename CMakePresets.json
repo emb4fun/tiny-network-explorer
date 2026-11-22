@@ -1,0 +1,93 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 23,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "ucrt64-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "environment": {
+                "PATH": "C:/msys64/ucrt64/bin;C:/msys64/usr/bin;$penv{PATH}"
+            },
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/msys2-ucrt64.cmake",
+                "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/ninja.exe",
+                "CMAKE_BUILD_TYPE": "Release",
+                "TNE_BUILD_CONSOLE": "ON",
+                "TNE_BUILD_WX": "ON"
+            }
+        },
+        {
+            "name": "ucrt64",
+            "displayName": "MSYS2 UCRT64 (Ninja, Release)",
+            "inherits": "ucrt64-base"
+        },
+        {
+            "name": "ucrt64-debug",
+            "displayName": "MSYS2 UCRT64 (Ninja, Debug)",
+            "inherits": "ucrt64-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "linux-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/linux-native.cmake",
+                "CMAKE_BUILD_TYPE": "Release",
+                "TNE_BUILD_CONSOLE": "ON",
+                "TNE_BUILD_WX": "ON"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "Linux (Ninja, Release)",
+            "inherits": "linux-base"
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "Linux (Ninja, Debug)",
+            "inherits": "linux-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "ucrt64",
+            "configurePreset": "ucrt64"
+        },
+        {
+            "name": "ucrt64-debug",
+            "configurePreset": "ucrt64-debug"
+        },
+        {
+            "name": "linux-release",
+            "configurePreset": "linux-release"
+        },
+        {
+            "name": "linux-debug",
+            "configurePreset": "linux-debug"
+        }
+    ]
+}
+

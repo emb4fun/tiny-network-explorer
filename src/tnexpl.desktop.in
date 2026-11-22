@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Tiny Network Explorer
+Comment=Discover and configure Tiny network devices
+Exec=@TNE_DESKTOP_EXEC@
+Icon=@TNE_DESKTOP_ICON@
+Path=@TNE_DESKTOP_PATH@
+Terminal=false
+Categories=Network;Utility;

@@ -1,0 +1,61 @@
+/**************************************************************************
+*  Copyright (c) 2026 by Michael Fischer (www.emb4fun.de).
+*  All rights reserved.
+*
+*  Credit goes to the AI assistant that helped convert the legacy version
+*  into a wxWidgets application for Linux and Windows.
+*
+*  Redistribution and use in source and binary forms, with or without 
+*  modification, are permitted provided that the following conditions 
+*  are met:
+*  
+*  1. Redistributions of source code must retain the above copyright 
+*     notice, this list of conditions and the following disclaimer.
+*
+*  2. Redistributions in binary form must reproduce the above copyright
+*     notice, this list of conditions and the following disclaimer in the 
+*     documentation and/or other materials provided with the distribution.
+*
+*  3. Neither the name of the author nor the names of its contributors may 
+*     be used to endorse or promote products derived from this software 
+*     without specific prior written permission.
+*
+*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
+*  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+*  THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+*  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+*  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS 
+*  OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+*  AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+*  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF 
+*  THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF 
+*  SUCH DAMAGE.
+**************************************************************************/
+#ifndef TNP_DEVICE_H
+#define TNP_DEVICE_H
+
+#include <stdint.h>
+
+#include "tnp_protocol.h"
+
+typedef struct tnp_device {
+    uint8_t is_es;
+    uint8_t mac_address[6];
+    uint16_t use_dhcp;
+    uint32_t address;
+    uint32_t mask;
+    uint32_t gateway;
+    char name[TNP_MAX_NAME_LEN];
+    char location[TNP_MAX_LOCATION_LEN];
+    char mdns_name[TNP_MAX_MDNS_NAME_LEN];
+
+    /* Preformatted strings for UI list columns */
+    char display_mac[24];
+    char display_ip[40];
+    char display_name[64];
+    char display_location[TNP_MAX_LOCATION_LEN];
+} tnp_device_t;
+
+#endif /* TNP_DEVICE_H */
